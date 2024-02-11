@@ -13,25 +13,26 @@
 [global]
 	monitor = 0
 	follow = mouse
-	width = 300
-	height = 100
+	width = 400
+	height = 150
 	origin = top-right
 	offset = 10x50
+	geometry = "400x150-13+44"
 
 	indicate_hidden = yes
 	transparency = 0
 	gap_size = 6
 	padding = 8
 	horizontal_padding = 10
-	frame_width = 0
-	frame_color = "#161e20"
-	separator_color = "#161e20"
+	frame_width = 2
+	frame_color =  "#79c9ff"
+	separator_color = "#79c9ff"
 
-    font = Cascadia Code 8
+    font = Agave Nerd Font Mono 12
 
 	line_height = 0
 	markup = full
-	format = "<span size='x-large' font_desc='Cascadia Code 9' weight='bold' foreground='#f9f9f9'>%s</span>\n%b"
+	format = "<span size='x-large' font_desc='Agave Nerd Font Mono 12' weight='bold' foreground='#f9f9f9'>%s</span>\n%b"
 	alignment = center
 	vertical_alignment = center
 	
@@ -47,13 +48,13 @@
 	sticky_history = no
 	history_length = 20
 	always_run_script = true
-	corner_radius = 4
+	corner_radius = 7
 	icon_position = left
 	max_icon_size = 40
 
 	icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
-	browser = firefox
+	browser = brave=browser
 
 	title = Dunst
 	class = Dunst
@@ -65,15 +66,15 @@
 
 [urgency_low]
 	timeout = 3
-	background = "#161e20"
-	foreground = "#c0caf5"
+	background = "#393939"
+	foreground = "#79c9ff"
 
 [urgency_normal]
 	timeout = 6
-	background = "#161e20"
-	foreground = "#c0caf5"
+	background = "#393939"
+	foreground = "#79c9ff"
 
 [urgency_critical]
 	timeout = 0
-	background = "#161e20"
-	foreground = "#c0caf5"
+	background = "#393939"
+	foreground = "#79c9ff"
