@@ -18,6 +18,47 @@ super + Escape
 # bspwm hotkeys
 #
 
+# Increase brightness
+XF86MonBrightnessUp
+    sudo light -A 10 # Increase brightness by 10%
+
+# Decrease brightness
+XF86MonBrightnessDown
+    sudo light -U 10 # Decrease brightness by 10%
+
+
+# Increase volume
+XF86AudioRaiseVolume
+    pamixer -i 5 # Increase volume by 5%
+
+# Decrease volume
+XF86AudioLowerVolume
+    pamixer -d 5 # Decrease volume by 5%
+
+# Mute/unmute volume
+XF86AudioMute
+    pamixer -t # Toggle mute
+
+# pause/play
+XF86AudioPlay
+	playerctl play-pause
+
+# next
+XF86AudioNext
+	playerctl next
+
+# previous
+XF86AudioPrev
+	playerctl previous
+
+# stop
+XF86AudioStop
+	playerctl stop
+
+# Print screen copy to clipboard
+Print
+    maim | xclip -selection clipboard -t image/png
+
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
@@ -108,6 +149,10 @@ super + ctrl + shift + space
 
 super + shift + alt + q
 	bspc quit
+
+# shut down
+super + shift + alt + s
+	systemctl poweroff
 
 #
 # move/resize

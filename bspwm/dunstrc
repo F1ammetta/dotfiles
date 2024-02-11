@@ -1,0 +1,76 @@
+#
+#   ██████╗ ██╗   ██╗███╗   ██╗███████╗████████╗██████╗  ██████╗
+#   ██╔══██╗██║   ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝	
+#   ██║  ██║██║   ██║██╔██╗ ██║███████╗   ██║   ██████╔╝██║     
+#   ██║  ██║██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██╗██║     	
+#   ██████╔╝╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║╚██████╗
+#   ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝
+#                                                           
+
+[global]
+	monitor = 0
+	follow = mouse
+	width = 300
+	height = 100
+	origin = top-right
+	offset = 10x50
+
+	indicate_hidden = yes
+	transparency = 0
+	gap_size = 6
+	padding = 8
+	horizontal_padding = 10
+	frame_width = 0
+	frame_color = "#1a1b26"
+	separator_color = "#c0caf5"
+
+    font = Agave Nerd Font Mono 9
+
+	line_height = 0
+	markup = full
+	format = "<span size='x-large' font_desc='Cascadia Code 9' weight='bold' foreground='#f9f9f9'>%s</span>\n%b"
+	alignment = center
+	vertical_alignment = center
+	
+	notification_limit = 20
+	idle_threshold = 120
+	show_age_threshold = 60
+	sort = no
+	word_wrap = false
+	ignore_newline = false
+	stack_duplicates = false
+	hide_duplicate_count = yes
+	show_indicators = no
+	sticky_history = no
+	history_length = 20
+	always_run_script = true
+	corner_radius = 4
+	icon_position = left
+	max_icon_size = 40
+
+	icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+	browser = firefox
+
+	title = Dunst
+	class = Dunst
+	corner_radius = 20
+
+	mouse_left_click = close_current
+	mouse_middle_click = do_action, close_current
+	mouse_right_click = close_all
+
+[urgency_low]
+	timeout = 3
+	background = "#1a1b26"
+	foreground = "#c0caf5"
+
+[urgency_normal]
+	timeout = 6
+	background = "#1a1b26"
+	foreground = "#c0caf5"
+
+[urgency_critical]
+	timeout = 0
+	background = "#1a1b26"
+	foreground = "#c0caf5"
