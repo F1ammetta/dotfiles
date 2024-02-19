@@ -1,5 +1,6 @@
 #! /bin/sh
 
+export PATH="$HOME/.config/bspwm/scripts:$PATH"
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 一 二 三 四 五 六 七 八 九 十
@@ -20,7 +21,7 @@ bspc rule -a Screenkey manage=off
 
 $HOME/.config/polybar/launch.sh --encoding=utf-8
 
-feh --bg-center /home/sergiodkpo/Pictures/Y20000.jpg --bg-fill
+feh --bg-center /home/sergiodkpo/Pictures/kindred.jpeg --bg-fill
 
 dunst -config ~/.config/dunst/dunstrc &
 

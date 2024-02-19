@@ -8,7 +8,7 @@ ctrl + alt + t
 
 # program launcher
 super + @space
-	dmenu_run
+	dmenu_run -c -p "Run:" -l 10 -fn "Fira Code-10" -nb "#282828" -nb "#393939" -sb "#79c9ff" -sf "#373737" -nhf "#fff" -shf "#fff" -nhb "#393939" -shb "#393939"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -19,25 +19,11 @@ super + Escape
 #
 
 # Increase brightness
-XF86MonBrightnessUp
-    sudo light -A 10 # Increase brightness by 10%
+XF86MonBrightness{Up,Down}
+    Brightness {up,down}
 
-# Decrease brightness
-XF86MonBrightnessDown
-    sudo light -U 10 # Decrease brightness by 10%
-
-
-# Increase volume
-XF86AudioRaiseVolume
-    pamixer -i 5 # Increase volume by 5%
-
-# Decrease volume
-XF86AudioLowerVolume
-    pamixer -d 5 # Decrease volume by 5%
-
-# Mute/unmute volume
-XF86AudioMute
-    pamixer -t # Toggle mute
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	Volume{ --inc, --dec, --toggle}
 
 # pause/play
 XF86AudioPlay
@@ -54,6 +40,10 @@ XF86AudioPrev
 # stop
 XF86AudioStop
 	playerctl stop
+
+# File manager
+super + e
+	thunar
 
 # Print screen copy to clipboard
 Print

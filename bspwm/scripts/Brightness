@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+#   ██████╗ ██████╗ ██╗ ██████╗ ██╗  ██╗████████╗███╗   ██╗███████╗███████╗███████╗
+#   ██╔══██╗██╔══██╗██║██╔════╝ ██║  ██║╚══██╔══╝████╗  ██║██╔════╝██╔════╝██╔════╝	Author - rxyhn
+#   ██████╔╝██████╔╝██║██║  ███╗███████║   ██║   ██╔██╗ ██║█████╗  ███████╗███████╗
+#   ██╔══██╗██╔══██╗██║██║   ██║██╔══██║   ██║   ██║╚██╗██║██╔══╝  ╚════██║╚════██║	GitHub - https://github.com/rxyhn/tokyo
+#   ██████╔╝██║  ██║██║╚██████╔╝██║  ██║   ██║   ██║ ╚████║███████╗███████║███████║
+#   ╚═════╝ ╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝
+#
+
+ASSETS="~/dotfiles/bspwm/assets"
+STEPS=5
+
+function get_brightness {
+	light -G | awk '{print int($1)}'
+}
+
+function send_notification {
+	icon="$ASSETS/brightness.svg"
+	brightness=$(get_brightness)
+	dunstify "Brightness $brightness%" -i $icon -r 5555 -u normal
+}
+
+case $1 in
+	up)
+		sudo light -A "${STEPS:-5}"
+		send_notification
+		;;
+	down)
+		sudo light -U "${STEPS:-5}"
+		send_notification
+		;;
+esac
