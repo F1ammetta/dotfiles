@@ -4,4 +4,4 @@ bold = { family = "Agave Nerd Font Mono", style = "Bold" }
 size = 14
 
 [window]
-opacity = 0.55
+opacity = 0.85

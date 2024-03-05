@@ -28,12 +28,9 @@ vim.keymap.set("n", "<A-k>", ":m-2<CR>==gi")
 vim.keymap.set("n", "<A-j>", ":m+<CR>==gi")
 vim.keymap.set("i", "<A-Down>", "<Esc>:m+<CR>==gi")
 
-vim.opt.shell = vim.fn.executable "pwsh" and "pwsh" or "powershell"
-vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
-vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-vim.opt.shellquote = ""
-vim.opt.shellxquote = ""
+-- set shell to zsh
+vim.o.shell = "zsh"
+
 
 vim.api.nvim_exec([[
     let g:copilot_filetypes = {'': v:true}
