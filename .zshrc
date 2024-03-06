@@ -50,17 +50,18 @@ export PATH="$PATH:/usr/local/go/bin"
 alias set_idf='. $HOME/esp/esp-idf/export.sh'
 alias ls='ls -a'
 
+# set fzh to pip history into fzf
+
 alias neofetch='neofetch --source ~/ascii.txt --colors 36 36 36 36 36'
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
 # set ctrl-a to kill line
-bindkey '^A' kill-whole-line
 eval "$(zoxide init zsh)"
 # set cd to zoxide
 alias cd='z'
 alias cdi='zi'
 # set ctrl-o to clear output
-bindkey '^O' clear-screen
 
+alias fzh='history | fzf'
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -161,6 +162,9 @@ source $ZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export MODULAR_HOME="/home/sergiodkpo/.modular"
 export PATH="/home/sergiodkpo/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+
+bindkey '^A' kill-whole-line
+bindkey '^O' clear-screen
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
