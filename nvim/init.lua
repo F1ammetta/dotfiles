@@ -151,6 +151,9 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- NOTE: New file keymap
+vim.keymap.set('n', '<leader>n', '<cmd>enew<CR>', { desc = 'New file' })
+
 -- NOTE: Buffer control keymaps
 
 -- Undo and Redo
@@ -175,7 +178,7 @@ vim.keymap.set('i', '<A-j>', '<cmd>m .+1<CR>==')
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==')
 vim.keymap.set('i', '<A-k>', '<cmd>m .-2<CR>==')
 
--- NOTE: Harpoon kemaps
+-- NOTE: Harpoon keymaps
 -- set leader h to open harpoon menu
 vim.keymap.set('n', '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = 'Harpoon Menu' })
 -- alt ; to tag file
@@ -270,6 +273,17 @@ require('lazy').setup {
   'github/copilot.vim',
   'theprimeagen/harpoon',
   'nyoom-engineering/oxocarbon.nvim',
+  {
+    'goolord/alpha-nvim',
+    config = function()
+      require('alpha').setup(require('custom-alpha').config)
+    end,
+  },
+  -- {
+  --   'xiyaowong/transparent.nvim',
+  --   event = 'UIEnter',
+  --   priority = 1000,
+  -- },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
