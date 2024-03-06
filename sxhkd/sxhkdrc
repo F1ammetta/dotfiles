@@ -45,9 +45,21 @@ XF86AudioStop
 super + e
 	thunar
 
+# Web browser
+super + b
+	firefox
+
+# discord
+super + d
+	discord
+
 # Print screen copy to clipboard
 Print
     maim | xclip -selection clipboard -t image/png
+
+# Screenshot
+super + shift + Print
+    maim -s | xclip -selection clipboard -t image/png
 
 # quit/restart bspwm
 super + alt + {q,r}
