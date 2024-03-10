@@ -10,6 +10,9 @@ ctrl + alt + t
 super + @space
 	dmenu_run -c -p "Run:" -l 10 -fn "Fira Code-10" -nb "#282828" -nb "#393939" -sb "#79c9ff" -sf "#373737" -nhf "#fff" -shf "#fff" -nhb "#393939" -shb "#393939"
 
+super + shift + alt + r
+	reboot
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
