@@ -169,6 +169,9 @@ vim.keymap.set('n', '<leader>Q', '<cmd>q!<CR>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
 
+-- go to previous buffer
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+
 -- Select All
 
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select All' })
