@@ -1,0 +1,14 @@
+window:
+  opacity: 0.85
+
+font:
+  normal:
+    family: "Agave Nerd Font Mono"
+
+  italic:
+    family: "Agave Nerd Font Mono"
+
+  bold:
+    family: "Agave Nerd Font Mono"
+
+  size: 13.0

@@ -11,6 +11,7 @@ fi
 export EDITOR='nvim'
 export TERMINAL='alacritty'
 export BROWSER='firefox'
+export SHELL='zsh'
 
 autoload -Uz compinit add-zsh-hook vcs_info
 compinit -C -d ~/.config/zsh/zcompdump
@@ -41,13 +42,13 @@ fi
 tmux source-file ~/.tmux.conf
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/node-v20.10.0-linux-x64/bin:$PATH"
+# export PATH="$HOME/node-v20.10.0-linux-x64/bin:$PATH"
 export PATH="$PATH:$HOME/neovim"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
-. /home/sergiodkpo/export-esp.sh
+. /home/fiammetta/export-esp.sh
 export PATH="$PATH:/usr/local/go/bin"
 
-alias set_idf='. $HOME/esp/esp-idf/export.sh'
+alias set_idf="nix-shell $HOME/nixpkgs-esp-dev/shells/esp32-idf.nix"
 alias ls='ls -a'
 
 # set fzh to pip history into fzf
@@ -66,7 +67,7 @@ alias fzh='history | fzf'
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="bigpath"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -131,6 +132,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/nix-shell.plugin.zsh
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -160,8 +162,8 @@ source $ZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export MODULAR_HOME="/home/sergiodkpo/.modular"
-export PATH="/home/sergiodkpo/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+export MODULAR_HOME="/home/fiammetta/.modular"
+export PATH="/home/fiammetta/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 
 bindkey '^A' kill-whole-line
 bindkey '^O' clear-screen
@@ -169,4 +171,4 @@ bindkey '^O' clear-screen
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

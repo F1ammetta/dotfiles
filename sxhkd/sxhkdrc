@@ -8,7 +8,7 @@ ctrl + alt + t
 
 # program launcher
 super + @space
-	dmenu_run -c -p "Run:" -l 10 -fn "Fira Code-10" -nb "#282828" -nb "#393939" -sb "#79c9ff" -sf "#373737" -nhf "#fff" -shf "#fff" -nhb "#393939" -shb "#393939"
+	dmenu_run
 
 super + shift + alt + r
 	reboot
@@ -22,11 +22,11 @@ super + Escape
 #
 
 # Increase brightness
-XF86MonBrightness{Up,Down}
-    Brightness {up,down}
+ctrl + alt + {Right,Left}
+    ~/.config/bspwm/scripts/Brightness {up,down}
 
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-	Volume{ --inc, --dec, --toggle}
+ctrl + alt + {Up,Down,Minus}
+    ~/.config/bspwm/scripts/Volume{ --inc, --dec, --toggle}
 
 # pause/play
 XF86AudioPlay
@@ -157,7 +157,7 @@ super + shift + alt + q
 
 # shut down
 super + shift + alt + s
-	systemctl poweroff
+	poweroff
 
 #
 # move/resize
