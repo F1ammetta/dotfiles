@@ -135,6 +135,7 @@
       git
       neovim
       feh
+      flatpak
       playonlinux
       virtualbox
       xorg.xinit
