@@ -8,7 +8,7 @@ ctrl + alt + t
 
 # program launcher
 super + @space
-	dmenu_run
+	rofi -show drun -show-icons
 
 super + shift + alt + r
 	reboot
