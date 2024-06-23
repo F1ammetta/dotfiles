@@ -7,7 +7,6 @@
 #     ╚═══╝   ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
 #
 
-ASSETS="~/dotfiles/bspwm/assets"
 notify_cmd='dunstify -u low -h string:x-dunst-stack-tag:cvolum' 
 
 # Get Volume
@@ -19,15 +18,15 @@ get_volume() {
 get_icon() {
     current="$(get_volume)"
     if [[ "$current" -eq "0" || "$current" == "muted" ]]; then
-        icon="$ASSETS/mute.svg"
+        icon="./mute.svg"
     else
-        icon="$ASSETS/volume.svg"
+        icon="./volume.svg"
     fi
 }
 
 # Notify
 notify_user() {
-    ${notify_cmd} -i "$icon" "Volume : $(get_volume)%"
+    ${notify_cmd} -i "$(get_icon)" "Volume : $(get_volume)%"
 }
 
 # Adjust Volume

@@ -20,7 +20,7 @@ bspc rule -a Screenkey manage=off
 
 $HOME/.config/polybar/launch.sh --encoding=utf-8
 
-feh --bg-center ~/Pictures/lappland.jpg --bg-fill
+feh --bg-center ~/Pictures/991345-Tokyo-Japan-rain-cyan-red-neon-glow-neon-city-lights.jpg --bg-fill
 
 dunst -config ~/.config/dunst/dunstrc &
 

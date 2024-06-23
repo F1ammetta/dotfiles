@@ -8,26 +8,28 @@
 #   ╚═════╝ ╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝
 #
 
-ASSETS="~/dotfiles/bspwm/assets"
 STEPS=5
 
 function get_brightness {
-	light -G | awk '{print int($1)}'
+	curr=$(brightnessctl g)
+	max=$(brightnessctl m)
+	echo $((curr * 100 / max))
+
 }
 
 function send_notification {
-	icon="$ASSETS/brightness.svg"
+	icon="./brightness.svg"
 	brightness=$(get_brightness)
-	dunstify "Brightness $brightness%" -i $icon -r 5555 -u normal
+	dunstify "Brightness $brightness%" --i $icon -r 5555 -u normal
 }
 
 case $1 in
 	up)
-		sudo light -A "${STEPS:-5}"
+		brightnessctl s +$STEPS%
 		send_notification
 		;;
 	down)
-		sudo light -U "${STEPS:-5}"
+		brightnessctl s $STEPS%-
 		send_notification
 		;;
 esac

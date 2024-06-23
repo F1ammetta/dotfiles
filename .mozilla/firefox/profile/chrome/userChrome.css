@@ -115,12 +115,12 @@ toolbarseparator {
 
 
 
-/* This block autohides the bookmarks bar */ 
-#PersonalToolbar {
-  visibility: collapse !important;
-  margin-bottom: -20px !important;
-  transition: all .4s ease .5s !important;
-}
+/* /* This block autohides the bookmarks bar */  */
+/* #PersonalToolbar { */
+/*   visibility: collapse !important; */
+/*   margin-bottom: -20px !important; */
+/*   transition: all .4s ease .5s !important; */
+/* } */
 
 #navigator-toolbox:hover > #PersonalToolbar {
   visibility: visible !important;

@@ -22,10 +22,10 @@ super + Escape
 #
 
 # Increase brightness
-ctrl + alt + {Right,Left}
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
     ~/.config/bspwm/scripts/Brightness {up,down}
 
-ctrl + alt + {Up,Down,Minus}
+{XF86AudioRaiseVolume, XF86AudioLowerVolume, XF86AudioMute}
     ~/.config/bspwm/scripts/Volume{ --inc, --dec, --toggle}
 
 # pause/play
