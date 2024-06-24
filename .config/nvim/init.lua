@@ -183,6 +183,12 @@ vim.keymap.set('i', '<A-j>', '<cmd>m .+1<CR>==')
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==')
 vim.keymap.set('i', '<A-k>', '<cmd>m .-2<CR>==')
 
+-- Remap C-u to C-i
+vim.keymap.set('n', '<C-i>', '<C-u>', { desc = 'Remap C-u to C-i' })
+-- remove C-u
+vim.keymap.set('n', '<C-u>', 'nop', { desc = 'Remove C-u' })
+
+
 -- NOTE: Harpoon keymaps
 -- set leader h to open harpoon menu
 vim.keymap.set('n', '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = 'Harpoon Menu' })
@@ -301,7 +307,7 @@ require('lazy').setup {
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',    opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following lua:
@@ -336,7 +342,7 @@ require('lazy').setup {
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -798,7 +804,7 @@ require('lazy').setup {
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
     'folke/tokyonight.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here.

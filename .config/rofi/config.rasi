@@ -4,6 +4,9 @@ configuration {
   drun-display-format: "{name}";
   font: "Agave Nerd Font Mono Regular 14";
   modi: "window,run,drun";
+  ssh-client: "ssh";
+  terminal: "alacritty";
+  ssh-command: "{terminal} -e tmux new-session -A -s -e {ssh-client} {host}";
 }
 
 @theme "/dev/null"
