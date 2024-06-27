@@ -9,6 +9,8 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export VISUAL="${EDITOR}"
 export EDITOR='nvim'
+export editor='nvim'
+export VISUAL='nvim'
 export TERMINAL='alacritty'
 export BROWSER='firefox'
 export SHELL='zsh'
@@ -42,13 +44,13 @@ fi
 tmux source-file ~/.tmux.conf
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.local/bin:$PATH"
 # export PATH="$HOME/node-v20.10.0-linux-x64/bin:$PATH"
 export PATH="$PATH:$HOME/neovim"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
-. /home/fiammetta/export-esp.sh
-export PATH="$PATH:/usr/local/go/bin"
+# . /home/fiammetta/export-esp.sh
 
-alias set_idf="nix-shell $HOME/nixpkgs-esp-dev/shells/esp32-idf.nix"
+# alias set_idf="nix-shell $HOME/nixpkgs-esp-dev/shells/esp32-idf.nix"
 alias ls='ls -a'
 
 # set fzh to pip history into fzf

@@ -1,14 +1,14 @@
 [font]
-size = 13.0
+size = 14.0
 
 [font.bold]
-family = "Agave Nerd Font Mono"
+family = "Agave Nerd Font Mono Wifi"
 
 [font.italic]
-family = "Agave Nerd Font Mono"
+family = "Agave Nerd Font Mono Wifi"
 
 [font.normal]
-family = "Agave Nerd Font Mono"
+family = "Agave Nerd Font Mono Wifi"
 
 [window]
 opacity = 0.85

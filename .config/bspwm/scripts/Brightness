@@ -8,28 +8,22 @@
 #   ╚═════╝ ╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝
 #
 
-STEPS=5
-
-function get_brightness {
-	curr=$(brightnessctl g)
-	max=$(brightnessctl m)
-	echo $((curr * 100 / max))
-
-}
+STEPS=1
 
 function send_notification {
-	icon="./brightness.svg"
-	brightness=$(get_brightness)
-	dunstify "Brightness $brightness%" --i $icon -r 5555 -u normal
+	icon="brightness.svg"
+	brightness=$(brillo)
+	dunstify -i $icon -t 1000 -r 2593 -u normal "Brightness $brightness%"
 }
+
 
 case $1 in
 	up)
-		brightnessctl s +$STEPS%
+		brillo -q -A $STEPS
 		send_notification
 		;;
 	down)
-		brightnessctl s $STEPS%-
+		brillo -q -U $STEPS
 		send_notification
 		;;
 esac

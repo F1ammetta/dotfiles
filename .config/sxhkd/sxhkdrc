@@ -16,6 +16,9 @@ super + shift + s
 super + Tab
 	rofi -show window
 
+super + shift + w
+	$HOME/.local/bin/wifi-menu
+	
 
 super + shift + alt + r
 	reboot

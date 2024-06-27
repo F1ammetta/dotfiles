@@ -183,6 +183,9 @@ vim.keymap.set('i', '<A-j>', '<cmd>m .+1<CR>==')
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==')
 vim.keymap.set('i', '<A-k>', '<cmd>m .-2<CR>==')
 
+-- Lazygit
+vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'LazyGit' })
+
 -- Remap C-u to C-i
 vim.keymap.set('n', '<C-i>', '<C-u>', { desc = 'Remap C-u to C-i' })
 -- remove C-u
@@ -285,6 +288,7 @@ require('lazy').setup {
   'github/copilot.vim',
   'theprimeagen/harpoon',
   'nyoom-engineering/oxocarbon.nvim',
+  'kdheepak/lazygit.nvim',
   {
     'goolord/alpha-nvim',
     config = function()
