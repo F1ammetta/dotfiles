@@ -174,3 +174,5 @@ bindkey '^O' clear-screen
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
+export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
