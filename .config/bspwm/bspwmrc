@@ -1,6 +1,9 @@
 #! /bin/sh
 
 export PATH="$HOME/.local/bin:$PATH"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 一 二 三 四 五 六 七 八 九 十
@@ -24,6 +27,7 @@ $HOME/.config/polybar/launch.sh --encoding=utf-8
 
 feh --bg-center ~/dotfiles/wall.png --bg-fill
 
+fcitx 2>&1 /tmp/fcitx.log &
 dunst -config ~/.config/dunst/dunstrc &
 
 killall picom
