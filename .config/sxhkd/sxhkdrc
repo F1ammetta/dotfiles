@@ -56,7 +56,7 @@ XF86AudioStop
 
 # File manager
 super + e
-	thunar
+	dolphin
 
 # Web browser
 super + b
