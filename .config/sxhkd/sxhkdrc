@@ -23,6 +23,12 @@ super + shift + w
 super + shift + alt + r
 	reboot
 
+super + shift + alt + h
+	systemctl hibernate
+
+super + shift + alt + l
+	systemctl suspend
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

@@ -38,3 +38,4 @@ killall picom
 picom --config ~/.config/picom.conf &
 
 polybar 2>&1 /tmp/polybar.log &
+kdeconnectd 2>&1 /tmp/kdeconnectd.log &
