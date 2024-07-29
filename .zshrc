@@ -52,6 +52,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # alias set_idf="nix-shell $HOME/nixpkgs-esp-dev/shells/esp32-idf.nix"
 alias ls='ls -a'
+alias set_idf=". /opt/esp-idf/export.sh"
 
 # set fzh to pip history into fzf
 

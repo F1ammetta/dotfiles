@@ -191,7 +191,6 @@ vim.keymap.set('n', '<C-i>', '<C-u>', { desc = 'Remap C-u to C-i' })
 -- remove C-u
 vim.keymap.set('n', '<C-u>', 'nop', { desc = 'Remove C-u' })
 
-
 -- NOTE: Harpoon keymaps
 -- set leader h to open harpoon menu
 vim.keymap.set('n', '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = 'Harpoon Menu' })
@@ -231,6 +230,18 @@ vim.keymap.set('n', '<leader>kf', vim.diagnostic.setloclist, { desc = 'Open diag
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+local function rename_var()
+  local current_name = vim.fn.expand '<cword>'
+  local new_name = vim.fn.input('Rename ' .. current_name .. ' to: ')
+  if new_name ~= '' then
+    vim.lsp.buf.rename(new_name)
+  else
+    print 'Rename cancelled'
+  end
+end
+-- Use gr to rename variable under cursor, in a function ask for new name then use vim.lsp.buf.rename
+vim.keymap.set('n', 'gk', rename_var, { desc = 'Rename variable under cursor' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -311,7 +322,7 @@ require('lazy').setup {
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',    opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following lua:
@@ -346,7 +357,7 @@ require('lazy').setup {
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -808,7 +819,7 @@ require('lazy').setup {
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
     'folke/tokyonight.nvim',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here.

@@ -1,0 +1,17 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=/home/fiammetta/.local/bin/arknights
+GenericName[en_US]=Tower Defense Game
+GenericName=Tower Defense Game
+Icon=/home/fiammetta/dotfiles/amiya.png
+MimeType=
+Name[en_US]=Arknights
+Name=Arknights
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
