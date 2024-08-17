@@ -14,6 +14,7 @@ export VISUAL='nvim'
 export TERMINAL='alacritty'
 export BROWSER='firefox'
 export SHELL='zsh'
+export CHROME_EXECUTABLE='brave'
 
 autoload -Uz compinit add-zsh-hook vcs_info
 compinit -C -d ~/.config/zsh/zcompdump
@@ -48,12 +49,13 @@ export PATH="$HOME/.local/bin:$PATH"
 # export PATH="$HOME/node-v20.10.0-linux-x64/bin:$PATH"
 export PATH="$PATH:$HOME/neovim"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$(go env GOPATH)/bin"
 # . /home/fiammetta/export-esp.sh
 
 # alias set_idf="nix-shell $HOME/nixpkgs-esp-dev/shells/esp32-idf.nix"
 alias ls='ls -a'
 alias set_idf=". /opt/esp-idf/export.sh"
-
+alias teams='brave --app=https://teams.microsoft.com/go'
 # set fzh to pip history into fzf
 
 alias neofetch='neofetch --source ~/ascii.txt --colors 36 36 36 36 36'

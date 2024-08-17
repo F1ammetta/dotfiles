@@ -300,6 +300,7 @@ require('lazy').setup {
   'theprimeagen/harpoon',
   'nyoom-engineering/oxocarbon.nvim',
   'kdheepak/lazygit.nvim',
+  'akinsho/flutter-tools.nvim',
   {
     'goolord/alpha-nvim',
     config = function()
