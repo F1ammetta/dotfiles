@@ -15,6 +15,13 @@ export TERMINAL='alacritty'
 export BROWSER='firefox'
 export SHELL='zsh'
 export CHROME_EXECUTABLE='brave'
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
+unset QT_STYLE_OVERRIDE
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_QUICK_CONTROLS_STYLE="org.kde.desktop"
 
 autoload -Uz compinit add-zsh-hook vcs_info
 compinit -C -d ~/.config/zsh/zcompdump
@@ -179,3 +186,5 @@ bindkey '^O' clear-screen
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
+
+export PATH=$PATH:/home/fiammetta/.spicetify
