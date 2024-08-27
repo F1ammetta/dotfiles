@@ -81,12 +81,12 @@
     },
     "cpu": {
         "interval": 15,
-        "format": " {usage}%",
+        "format": "<span font-size='18pt'></span> {usage}%",
         "max-length": 10
     },
     "memory": {
         "interval": 30,
-        "format": " {}%",
+        "format": "<span font-size='18pt'></span> {}%",
         "max-length": 10
     },
     "custom/spotify": {
@@ -105,7 +105,7 @@
         "on-click-right": "killall wofi"
     },
     "custom/power":{
-        "format": " ",
+        "format": "<span font-size='22pt'>⏻</span>",
         "on-click": "bash ~/.config/wofi/leave.sh",
     },
     // The code following below is given in the great documentation for Waybar status bar under Useful Utilities in Hyprland wiki
