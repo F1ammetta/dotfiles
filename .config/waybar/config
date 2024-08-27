@@ -3,20 +3,42 @@
 	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
 	"margin-bottom": -10,
 	"margin-top": 0,
-	"modules-left": ["custom/launcher", "cpu","memory","custom/spotify", "tray"],
+	"modules-left": ["custom/launcher", "cpu","memory","custom/notification","custom/spotify", "tray"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["pulseaudio", "bluetooth", "clock", "custom/power"],
 
 	"bluetooth": {
 		"on-click":"pgrep kcmshell6 | xargs kill; kcmshell6 kcm_bluetooth",
 	},
-	
+
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "<span foreground='red'><sup></sup></span>",
+			"none": "",
+			"dnd-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-none": "",
+			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
+	},
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
-		"format": "{icon} {volume}%",
-		"format-muted": "󰝟 {volume}%",
-		"format-bluetooth": " {icon} {volume}%",
+		"format": "<span font-size='18pt'>{icon}</span> {volume}% {format_source}",
+		"format-muted": "<span font-size='18pt'>󰝟</span> {volume}%",
+		"format-bluetooth": "<span font-size='18pt'></span> {icon} {volume}%",
+		"format-source":"",
+		"format-source-muted":"<span font-size='18pt' color='#005357'>󰍭</span>",
 		"on-click":"pgrep kcmshell6 | xargs kill; kcmshell6 kcm_pulseaudio",
 		"format-icons": {
 			"default": ["", "", ""]
@@ -30,7 +52,7 @@
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "⚠",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
-		},
+	},
 	"backlight": {
 		"tooltip": false,
 		"format": "{}%",
@@ -59,7 +81,7 @@
     },
     "cpu": {
         "interval": 15,
-        "format": " {}%",
+        "format": " {usage}%",
         "max-length": 10
     },
     "memory": {
@@ -72,11 +94,13 @@
 	"return-type": "json",
 	"exec": "~/.config/waybar/scripts/spotify.sh",
 	"exec-if": "pgrep spotify",
+	"on-click": "hyprctl dispatch focuswindow '^(Spotify)$'",
+	"on-click-right": "playerctl -p spotify play-pause",
 	"escape": true
 
     },
     "custom/launcher":{
-        "format": " ",
+        "format": "<span font-size='22pt'></span>",
         "on-click": "wofi --show drun -I",
         "on-click-right": "killall wofi"
     },

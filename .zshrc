@@ -23,6 +23,10 @@ export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME="qt6ct"
 export QT_QUICK_CONTROLS_STYLE="org.kde.desktop"
 
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS="@im=fcitx"
+
 autoload -Uz compinit add-zsh-hook vcs_info
 compinit -C -d ~/.config/zsh/zcompdump
 precmd () { vcs_info }
