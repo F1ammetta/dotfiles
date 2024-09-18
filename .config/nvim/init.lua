@@ -455,9 +455,12 @@ require('lazy').setup {
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-      vim.keymap.set('n', '<leader>ff', function()
+      vim.keymap.set('n', '<leader>fF', function()
         builtin.find_files { hidden = true, no_ignore = true }
-      end, { desc = '[F]ind [F]iles' })
+      end, { desc = '[F]ind all [F]iles' })
+      vim.keymap.set('n', '<leader>ff', function()
+        builtin.find_files { hidden = true, no_ignore = false }
+      end, { desc = '[F]ind [f]iles' })
       vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
       vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = '[F]ind [C]urrent word' })
       vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = '[F]ind [W]ord' })

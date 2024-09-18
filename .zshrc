@@ -52,8 +52,8 @@ PS1='%B%F{blue}%f%b  %B%F{magenta}%n%f%b $(dir_icon)  %B%F{red}%~%f%b${vcs_in
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
+  tmux source-file ~/.tmux.conf
 fi
-tmux source-file ~/.tmux.conf
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
@@ -138,7 +138,7 @@ ZSH_THEME="bigpath"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/dotfiles/zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -148,10 +148,10 @@ ZSH_THEME="bigpath"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/nix-shell.plugin.zsh
-source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
+# source $ZSH/nix-shell.plugin.zsh
+source $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # User configuration
 
