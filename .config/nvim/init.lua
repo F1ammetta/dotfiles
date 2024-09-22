@@ -301,6 +301,7 @@ require('lazy').setup {
   'nyoom-engineering/oxocarbon.nvim',
   'kdheepak/lazygit.nvim',
   'akinsho/flutter-tools.nvim',
+  'christoomey/vim-tmux-navigator',
   {
     'goolord/alpha-nvim',
     config = function()

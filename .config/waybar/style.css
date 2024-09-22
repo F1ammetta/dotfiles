@@ -29,13 +29,15 @@ window#waybar.hidden {
 	font-size: 4px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	background: #161320;
+	background: #004f4f;
+	/* Darker cyan */
 	transition: none;
 }
 
 #workspaces button {
 	transition: none;
-	color: #B5E8E0;
+	color: #b5e8e0;
+	/* Light cyan */
 	background: transparent;
 	font-size: 16px;
 	border-radius: 2px;
@@ -43,30 +45,36 @@ window#waybar.hidden {
 
 #workspaces button.occupied {
 	transition: none;
-	color: #F28FAD;
+	color: #f28fad;
+	/* Light pink */
+	background: transparent;
+	font-size: 4px;
+}
+
+#workspaces button.empty {
+	transition: none;
+	color: #222222;
 	background: transparent;
 	font-size: 4px;
 }
 
 #workspaces button.active {
-	color: #161320;
-	background: #ABE9B3;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #008b8b;
+	/* Main cyan */
 	border-radius: 10px;
-	/* border-top: 2px solid #ABE9B3; */
-	/* border-bottom: 2px solid #ABE9B3; */
 }
 
 #workspaces button:hover {
 	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: #FAE3B0;
-	border-color: #E8A2AF;
-	color: #E8A2AF;
+	color: #e8a2af;
+	/* Pinkish accent */
+	border-color: #e8a2af;
 }
 
 #workspaces button.active:hover {
-	color: #E8A2AF;
+	color: #e8a2af;
 }
 
 #network {
@@ -77,8 +85,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #bd93f9;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #008b8b;
+	/* Main cyan */
 }
 
 #bluetooth {
@@ -89,8 +99,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #8BE9FD;
+	color: #002626;
+	/* Darker cyan */
+	background: #00a3a3;
+	/* Slightly lighter cyan */
 }
 
 #pulseaudio {
@@ -101,9 +113,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #1A1826;
-	background: #FAE3B0;
-	/* modify nerd font size */
+	/* Dark background */
+	background: #004f4f;
+	/* Main cyan */
+	color: #00cccc;
 }
 
 #custom-notification {
@@ -114,8 +127,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #F2CDCD;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #00b3b3;
+	/* Even lighter cyan */
 }
 
 #battery {
@@ -126,19 +141,25 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #B5E8E0;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #008b8b;
+	/* Main cyan */
 }
 
 #battery.charging,
 #battery.plugged {
-	color: #161320;
-	background-color: #B5E8E0;
+	color: #004f4f;
+	/* Darker cyan */
+	background-color: #008b8b;
+	/* Main cyan */
 }
 
 #battery.critical:not(.charging) {
-	background-color: #B5E8E0;
-	color: #161320;
+	background-color: #008b8b;
+	/* Main cyan */
+	color: #004f4f;
+	/* Darker cyan */
 	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
@@ -148,8 +169,10 @@ window#waybar.hidden {
 
 @keyframes blink {
 	to {
-		background-color: #BF616A;
-		color: #B5E8E0;
+		background-color: #bf616a;
+		/* Red for critical battery */
+		color: #b5e8e0;
+		/* Light cyan */
 	}
 }
 
@@ -161,8 +184,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #F8BD96;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #00a3a3;
+	/* Slightly lighter cyan */
 }
 
 #clock {
@@ -173,9 +198,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #ABE9B3;
-	/*background: #1A1826;*/
+	color: #00cccc;
+	/* Darker cyan */
+	background: #004f4f;
+	/* Main cyan */
 }
 
 #memory {
@@ -186,8 +212,10 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #DDB6F2;
+	color: #00cccc;
+	/* Darker cyan */
+	background: #004f4f;
+	/* Even lighter cyan */
 }
 
 #cpu {
@@ -198,8 +226,10 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #96CDFB;
+	color: #002626;
+	/* Darker cyan */
+	background: #00a3a3;
+	/* Slightly lighter cyan */
 }
 
 #tray {
@@ -210,8 +240,10 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #B5E8E0;
-	background: #161320;
+	color: #002626;
+	/* Light cyan */
+	background: #004f4f;
+	/* Darker cyan */
 }
 
 #custom-launcher {
@@ -222,8 +254,10 @@ window#waybar.hidden {
 	padding-right: 18px;
 	border-radius: 10px;
 	transition: none;
-	color: #89DCEB;
-	background: #161320;
+	color: #89dceb;
+	/* Light blue accent */
+	background: #004f4f;
+	/* Darker cyan */
 }
 
 #custom-power {
@@ -236,8 +270,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #F28FAD;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #bf616a;
+	/* Red for power */
 }
 
 #custom-wallpaper {
@@ -248,8 +284,10 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #C9CBFF;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #00b3b3;
+	/* Even lighter cyan */
 }
 
 #custom-spotify {
@@ -260,6 +298,8 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #F2CDCD;
+	color: #004f4f;
+	/* Darker cyan */
+	background: #00a3a3;
+	/* Slightly lighter cyan */
 }
