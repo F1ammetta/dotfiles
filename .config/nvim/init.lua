@@ -300,7 +300,13 @@ require('lazy').setup {
   'theprimeagen/harpoon',
   'nyoom-engineering/oxocarbon.nvim',
   'kdheepak/lazygit.nvim',
-  'akinsho/flutter-tools.nvim',
+  {
+    'akinsho/flutter-tools.nvim',
+    -- set indentation to 4 spaces
+    config = function()
+      vim.g.flutter_tools_indent_style = '4'
+    end,
+  },
   {
     'goolord/alpha-nvim',
     config = function()
