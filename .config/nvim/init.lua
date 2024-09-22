@@ -300,6 +300,7 @@ require('lazy').setup {
   'theprimeagen/harpoon',
   'nyoom-engineering/oxocarbon.nvim',
   'kdheepak/lazygit.nvim',
+  'christoomey/vim-tmux-navigator',
   {
     'akinsho/flutter-tools.nvim',
     -- set indentation to 4 spaces
