@@ -1326,7 +1326,7 @@ background_blur 0
 
 #: Advanced {{{
 
-shell tmux
+# shell .
 
 #: The shell program to execute. The default value of . means to use
 #: whatever shell is set as the default shell for the current user.
@@ -2529,9 +2529,3 @@ wayland_enable_ime yes
 #: }}}
 
 #: }}}
-
-
-# BEGIN_KITTY_THEME
-# Blazer
-# include current-theme.conf
-# END_KITTY_THEME

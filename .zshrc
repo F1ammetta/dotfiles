@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export VISUAL="${EDITOR}"
@@ -13,10 +14,12 @@ export editor='nvim'
 export VISUAL='nvim'
 export TERMINAL='alacritty'
 export BROWSER='firefox'
-export SHELL='zsh'
+export SHELL='/usr/bin/zsh'
 export CHROME_EXECUTABLE='brave'
-export LC_ALL="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
+# export LC_ALL="en_US.UTF-8"
+# export LC_CTYPE="en_US.UTF-8"
 
 unset QT_STYLE_OVERRIDE
 export QT_QPA_PLATFORM="wayland;xcb"
@@ -192,3 +195,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
 
 export PATH=$PATH:/home/fiammetta/.spicetify
+
+if pgrep -x "Hyprland" > /dev/null
+then
+else 
+  exec Hyprland
+fi

@@ -5,10 +5,15 @@
 	"margin-top": 0,
 	"modules-left": ["custom/launcher", "cpu","memory","custom/notification","custom/spotify", "tray"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["pulseaudio", "bluetooth", "clock", "custom/power"],
+	"modules-right": ["pulseaudio", "bluetooth", "network", "clock", "battery", "custom/power"],
 
 	"bluetooth": {
+	"format":" {status}",
 		"on-click":"pgrep kcmshell6 | xargs kill; kcmshell6 kcm_bluetooth",
+	},
+
+	"battery":{
+		"format":"{icon}{capacity}%"
 	},
 
 	"custom/notification": {
@@ -34,11 +39,11 @@
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
-		"format": "<span font-size='18pt'>{icon}</span> {volume}% {format_source}",
-		"format-muted": "<span font-size='18pt'>󰝟</span> {volume}%",
-		"format-bluetooth": "<span font-size='18pt'></span> {icon} {volume}%",
+		"format": "{icon}  {volume}% {format_source}",
+		"format-muted": "󰝟 {volume}%",
+		"format-bluetooth": " {icon} {volume}%",
 		"format-source":"",
-		"format-source-muted":"<span font-size='18pt' color='#005357'>󰍭</span>",
+		"format-source-muted":"󰍭",
 		"on-click":"pgrep kcmshell6 | xargs kill; kcmshell6 kcm_pulseaudio",
 		"format-icons": {
 			"default": ["", "", ""]
@@ -51,7 +56,8 @@
 		"tooltip-format": "{essid} ({signalStrength}%)",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "⚠",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+		"on-click":"pgrep kcmshell6 | xargs kill; kcmshell6 kcm_networkmanagement",
+		// "format-alt": "{ifname}: {ipaddr}/{cidr}" //
 	},
 	"backlight": {
 		"tooltip": false,
@@ -81,12 +87,12 @@
     },
     "cpu": {
         "interval": 15,
-        "format": "<span font-size='18pt'></span> {usage}%",
+        "format": " {usage}%",
         "max-length": 10
     },
     "memory": {
         "interval": 30,
-        "format": "<span font-size='18pt'></span> {}%",
+        "format": " {}%",
         "max-length": 10
     },
     "custom/spotify": {
@@ -100,12 +106,12 @@
 
     },
     "custom/launcher":{
-        "format": "<span font-size='22pt'></span>",
+        "format": "",
         "on-click": "wofi --show drun -I",
         "on-click-right": "killall wofi"
     },
     "custom/power":{
-        "format": "<span font-size='22pt'>⏻</span>",
+        "format": "⏻",
         "on-click": "bash ~/.config/wofi/leave.sh",
     },
     // The code following below is given in the great documentation for Waybar status bar under Useful Utilities in Hyprland wiki
