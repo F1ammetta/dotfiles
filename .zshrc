@@ -1,9 +1,16 @@
+# check if Hyprland is running and start it if not
+if ! pgrep -x "Hyprland" > /dev/null && [[ ""$(tty)"" == "/dev/tty1" ]];
+then
+  Hyprland
+fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+pokeget dewott --hide-name | fastfetch --logo-type kitty -c ~/dotfiles/fastfetch.jsonc --file-raw -
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -184,6 +191,14 @@ export PATH="/home/fiammetta/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 bindkey '^A' kill-whole-line
 bindkey '^O' clear-screen
 
+# bindkey '^G' to run lazygit
+function run-lazygit() {
+  lazygit
+  zle redisplay
+}
+zle -N run-lazygit
+bindkey '^G' run-lazygit
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -192,3 +207,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
 
 export PATH=$PATH:/home/fiammetta/.spicetify
+

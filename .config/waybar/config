@@ -38,8 +38,8 @@
 		"format-muted": "<span font-size='18pt'>󰝟</span> {volume}%",
 		"format-bluetooth": "<span font-size='11pt'></span> <span font-size='16pt'>{icon}</span> {volume}% {format_source}",
 		"format-source":"",
-		"format-source-muted":"<span font-size='18pt' color='#005357'>󰍭</span>",
-		"on-click":"pgrep kcmshell6 | xargs kill; kcmshell6 kcm_pulseaudio",
+		"format-source-muted":"<span font-size='18pt'>󰍭</span>",
+		"on-click":"pgrep pavucontrol | xargs kill; pavucontrol",
 		"format-icons": {
 			"default": ["", "", ""]
 		}

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+waydroid app launch com.YoStarEN.Arknights
+
+exit 0
+
 # Path to your Genymotion emulator
 GENYMOTION_PATH="/opt/genymotion"
 EMULATOR_NAME="Arknights"

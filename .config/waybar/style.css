@@ -59,7 +59,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-	color: #004f4f;
+	color: #b5e8e0;
 	/* Darker cyan */
 	background: #008b8b;
 	/* Main cyan */
