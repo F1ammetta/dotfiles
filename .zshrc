@@ -25,6 +25,8 @@ export CHROME_EXECUTABLE='brave'
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
+export MANPAGER="nvim +Man!"
+
 unset QT_STYLE_OVERRIDE
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME="qt6ct"
@@ -74,6 +76,8 @@ export PATH="$PATH":"$(go env GOPATH)/bin"
 alias ls='ls -a'
 alias set_idf=". /opt/esp-idf/export.sh"
 alias teams='brave --app=https://teams.microsoft.com/go'
+alias cp=pycp
+alias mv=pymv
 # set fzh to pip history into fzf
 
 alias neofetch='neofetch --source ~/ascii.txt --colors 36 36 36 36 36'
@@ -190,6 +194,14 @@ export PATH="/home/fiammetta/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 
 bindkey '^A' kill-whole-line
 bindkey '^O' clear-screen
+# bind ^P to run  pokeget dewott --hide-name | fastfetch --logo-type kitty -c ~/dotfiles/fastfetch.jsonc --file-raw -
+function run-pokeget() {
+  pokeget dewott --hide-name | fastfetch --logo-type kitty -c ~/dotfiles/fastfetch.jsonc --file-raw -
+  zle redisplay
+}
+zle -N run-pokeget
+bindkey '^P' run-pokeget
+
 
 # bindkey '^G' to run lazygit
 function run-lazygit() {
