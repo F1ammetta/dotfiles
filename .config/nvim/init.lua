@@ -108,6 +108,9 @@ vim.keymap.set('n', '<C-i>', '<C-u>', { desc = 'Remap C-u to C-i' })
 -- remove C-u
 vim.keymap.set('n', '<C-u>', 'nop', { desc = 'Remove C-u' })
 
+-- oil keymaps
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
 -- NOTE: Harpoon keymaps
 -- set leader h to open harpoon menu
 vim.keymap.set('n', '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = 'Harpoon Menu' })
@@ -190,6 +193,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    if vim.bo.filetype == '' then
+      require('telescope.builtin').find_files {
+        prompt_title = 'Find Files',
+        hidden = false,
+        follow = true,
+        no_ignore = false,
+        cwd = vim.fn.expand '%:p:h',
+      }
+    end
+  end,
+})
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -236,9 +252,9 @@ require('lazy').setup {
   },
   {
     'goolord/alpha-nvim',
-    config = function()
-      require('alpha').setup(require('custom-alpha').config)
-    end,
+    -- config = function()
+    --   require('alpha').setup(require('custom-alpha').config)
+    -- end,
   },
   -- {
   --   'xiyaowong/transparent.nvim',

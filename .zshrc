@@ -18,7 +18,7 @@ pokeget dewott --hide-name | fastfetch --logo-type kitty -c ~/dotfiles/fastfetch
 export EDITOR='nvim'
 export editor='nvim'
 export VISUAL='nvim'
-export TERMINAL='alacritty'
+export TERMINAL='kitty'
 export BROWSER='firefox'
 export SHELL='zsh'
 export CHROME_EXECUTABLE='brave'
@@ -35,6 +35,8 @@ export QT_QUICK_CONTROLS_STYLE="org.kde.desktop"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
+
+export XDG_MENU_PREFIX="arch-"
 
 autoload -Uz compinit add-zsh-hook vcs_info
 compinit -C -d ~/.config/zsh/zcompdump
