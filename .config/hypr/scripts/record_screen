@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+if [[ -z $(pgrep -f gpu-screen-recorder) ]]; then
+	gpu-screen-recorder -w "HDMI-A-1" -a default_output -c mp4 -f 60 -o ~/Videos/"video_$(date +"%F %T")".mp4 &
+	notify-send "Recording Started"
+else
+	killall -SIGINT gpu-screen-recorder
+	notify-send "Recording Stopped"
+fi

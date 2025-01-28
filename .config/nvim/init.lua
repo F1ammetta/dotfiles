@@ -195,7 +195,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
-    if vim.bo.filetype == '' then
+    if #vim.api.nvim_list_bufs() == 1 and vim.api.nvim_buf_get_name(0) == '' then
       require('telescope.builtin').find_files {
         prompt_title = 'Find Files',
         hidden = false,
@@ -206,6 +206,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
     end
   end,
 })
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -226,11 +227,15 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
+-- lsp-config.gleam.setup {}
+-- require('nvim-lspconfig').gleam.setup {}
+
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'github/copilot.vim',
   'theprimeagen/harpoon',
+  'norcalli/nvim-colorizer.lua',
   'nyoom-engineering/oxocarbon.nvim',
   'kdheepak/lazygit.nvim',
   'christoomey/vim-tmux-navigator',
@@ -240,6 +245,16 @@ require('lazy').setup {
     config = function()
       vim.g.flutter_tools_indent_style = '4'
     end,
+  },
+  {
+    'S1M0N38/love2d.nvim',
+    cmd = 'LoveRun',
+    opts = {},
+    keys = {
+      { '<leader>v', ft = 'lua', desc = 'LÖVE' },
+      { '<leader>vv', '<cmd>LoveRun<cr>', ft = 'lua', desc = 'Run LÖVE' },
+      { '<leader>vs', '<cmd>LoveStop<cr>', ft = 'lua', desc = 'Stop LÖVE' },
+    },
   },
   {
     'stevearc/oil.nvim',
@@ -607,6 +622,7 @@ require('lazy').setup {
                 -- for your neovim configuration.
                 library = {
                   '${3rd}/luv/library',
+                  -- '${3rd}/love2d/library',
                   unpack(vim.api.nvim_get_runtime_file('', true)),
                 },
                 -- If lua_ls is really slow on your computer, you can try this instead:
@@ -616,7 +632,7 @@ require('lazy').setup {
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = { globals = { 'love' } },
             },
           },
         },

@@ -1,0 +1,45 @@
+/* 
+ * Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+*/
+
+/** ********** Colors ********** **/
+@define-color background #1c2733;
+/* Dark slate blue */
+@define-color background-alt1 #24313f;
+/* Slightly lighter slate blue */
+@define-color background-alt2 #2e3c4c;
+/* Even lighter slate blue */
+@define-color foreground #ecfcff;
+/* Soft cyan-white */
+@define-color selected #7fd4f1;
+/* Vibrant aquamarine blue */
+@define-color black #1c2733;
+/* Dark slate blue */
+@define-color red #e05a9d;
+/* Vibrant magenta-red */
+@define-color green #4faeea;
+/* Bold sky blue (replacing green tones) */
+@define-color yellow #89a7d8;
+/* Muted denim blue (replacing yellow) */
+@define-color blue #4abbe8;
+/* Bright aqua */
+@define-color magenta #7fd4f1;
+/* Vibrant aquamarine blue */
+@define-color cyan #9ee9ea;
+/* Pale sky blue */
+@define-color white #ecfcff;
+/* Soft cyan-white */
+
+/* @define-color background      #20262C; */
+/* @define-color background-alt1 #2a323b; */
+/* @define-color background-alt2 #353f4a; */
+/* @define-color foreground      #f1fcf9; */
+/* @define-color selected        #b4a1db; */
+/* @define-color black           #20262c; */
+/* @define-color red             #db86ba; */
+/* @define-color green           #74dd91; */
+/* @define-color yellow          #e49186; */
+/* @define-color blue            #75dbe1; */
+/* @define-color magenta         #b4a1db; */
+/* @define-color cyan            #9ee9ea; */
+/* @define-color white           #f1fcf9; */

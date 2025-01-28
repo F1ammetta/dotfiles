@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+##
+## Script for spotify for waybar
+
+player_status=$(playerctl -p spotify -p spotify status 2>/dev/null)
+player=$(playerctl -p spotify -l 2>/dev/null | grep "spotify")
+
+if [ -z "$player" ]; then
+	echo -e " Spotify Offline!\nSpotify Offline.\noffline"
+	exit
+elif [ "$player_status" = "Playing" ]; then
+	echo -e " $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\nPlaying: $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\nplaying"
+elif [ "$player_status" = "Paused" ]; then
+	echo -e " $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\nPaused: $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\npaused"
+fi

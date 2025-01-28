@@ -1,0 +1,24 @@
+/* Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com> */
+
+/* Colors */
+
+* {
+    background:     #1c2733;  /* Dark slate blue */
+    background-alt: #24313f;  /* Slightly lighter slate blue */
+    foreground:     #ecfcff;  /* Soft cyan-white */
+    selected:       #7fd4f1;  /* Vibrant aquamarine blue */
+    active:         #4abbe8;  /* Bright aqua */
+    urgent:         #4abbe8;  /* Vibrant magenta-red */
+
+}
+
+/*
+* {
+    background:     #20262C;
+    background-alt: #2a323b;
+    foreground:     #f1fcf9;
+    selected:       #b4a1db;
+    active:         #74dd91;
+    urgent:         #db86ba;
+}
+*/

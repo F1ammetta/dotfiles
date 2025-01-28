@@ -1,7 +1,9 @@
 # check if Hyprland is running and start it if not
 if ! pgrep -x "Hyprland" > /dev/null && [[ ""$(tty)"" == "/dev/tty1" ]];
 then
-  Hyprland
+  # run Hyprland with no stdout
+  Hyprland > /dev/null 2>&1
+  exit
 fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
