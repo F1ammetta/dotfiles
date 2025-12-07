@@ -40,6 +40,7 @@ export XMODIFIERS="@im=fcitx"
 
 export XDG_MENU_PREFIX="arch-"
 
+
 autoload -Uz compinit add-zsh-hook vcs_info
 compinit -C -d ~/.config/zsh/zcompdump
 precmd () { vcs_info }
@@ -82,6 +83,7 @@ alias set_idf=". /opt/esp-idf/export.sh"
 alias teams='brave --app=https://teams.microsoft.com/go'
 alias cp=pycp
 alias mv=pymv
+alias nrf="source $HOME/ncs/v3.1.1/zephyr/zephyr-env.sh"
 # set fzh to pip history into fzf
 
 alias neofetch='neofetch --source ~/ascii.txt --colors 36 36 36 36 36'
@@ -223,4 +225,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
 
 export PATH=$PATH:/home/fiammetta/.spicetify
+
+autoload -U compinit
+compinit
+source <(jj util completion zsh)
 

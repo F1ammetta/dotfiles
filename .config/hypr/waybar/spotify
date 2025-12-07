@@ -3,15 +3,38 @@
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 ##
 ## Script for spotify for waybar
+cache_file="/tmp/waybar_last_player"
 
-player_status=$(playerctl -p spotify -p spotify status 2>/dev/null)
-player=$(playerctl -p spotify -l 2>/dev/null | grep "spotify")
+player_status=$(playerctl -p playerctld status 2>/dev/null)
+supported_players=("spotify" "Feishin")
+metadata=$(playerctl -p playerctld metadata 2>/dev/null)
 
-if [ -z "$player" ]; then
+# Determine actual player from metadata
+detected_player=""
+for p in "${supported_players[@]}"; do
+	if echo "$metadata" | grep -qi "$p"; then
+		detected_player="$p"
+		break
+	fi
+done
+
+artist=$(playerctl -p playerctld metadata artist)
+title=$(playerctl -p playerctld metadata title)
+
+# Decide output based on status and detected player
+if [ -z "$detected_player" ] || [ -z "$metadata" ]; then
+	cat $cache_file
+	playerctld shift
+	exit
+fi
+
+if [ "$player" ]; then
 	echo -e " Spotify Offline!\nSpotify Offline.\noffline"
 	exit
 elif [ "$player_status" = "Playing" ]; then
-	echo -e " $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\nPlaying: $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\nplaying"
+	echo -e "  $artist - $title\\nPlaying: $artist - $title\\nplaying" >"$cache_file"
+	echo -e "  $artist - $title\nPlaying: $artist - $title\nplaying"
 elif [ "$player_status" = "Paused" ]; then
-	echo -e " $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\nPaused: $(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)\npaused"
+	echo -e "  $artist - $title\\nPaused: $artist - $title\\npaused" >"$cache_file"
+	echo -e "  $artist - $title\nPaused: $artist - $title\npaused"
 fi

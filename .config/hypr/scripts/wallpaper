@@ -4,6 +4,8 @@
 ##
 ## Set Wallpaper in Hyprland
 
-WALLPAPER="$HOME/.config/hypr/wallpapers/wallpaper.png"
+MIKU="$HOME/.config/hypr/wallpapers/miku.png"
+NMIXX="$HOME/.config/hypr/wallpapers/nmixx.png"
 
-swaybg --output '*' --mode fill --image "$WALLPAPER"
+swaybg --output 'HDMI-A-1' --mode fill --image "$MIKU" &
+swaybg --output 'DP-3' --mode fill --image "$NMIXX" &

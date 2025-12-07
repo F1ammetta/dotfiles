@@ -302,8 +302,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.empty {
-	color: @background-alt1;
-
+	color: @foreground;
 }
 
 #workspaces button.urgent {

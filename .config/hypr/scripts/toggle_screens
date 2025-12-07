@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Get the enabled status of DP-3
+STATUS=$(wlr-randr --output DP-3 | awk '/DP-3/,/Adaptive Sync:/{if ($1 == "Enabled:") print $2}')
+
+if [ "$STATUS" == "yes" ]; then
+    # hyprctl keyword monitor "DP-3,disable"
+    # hyprctl keyword monitor "HDMI-A-1,disable"
+else
+    # hyprctl keyword monitor "HDMI-A-1, 1920x1080@60, 0x0, 1"
+    # hyprctl keyword monitor "DP-3, 1920x1080@60, 1920x0, 1"
+fi

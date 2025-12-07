@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-brave --app=https://web.whatsapp.com
+chromium --app=https://web.whatsapp.com
