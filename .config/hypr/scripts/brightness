@@ -8,8 +8,9 @@ iDIR="$HOME/.config/hypr/mako/icons"
 
 # Get brightness
 get_backlight() {
-	LIGHT=$(printf "%.0f\n" `light -G`)
-	echo "${LIGHT}%"
+	LIGHT=$(ddcutil --bus 5 --noverify --skip-ddc-checks getvcp 10 | grep -oP 'current value =\s+\K\d+')
+	# LIGHT=$(printf "%.0f\n" `light -G`)
+	echo "${LIGHT}"
 }
 
 # Get icons
@@ -36,12 +37,20 @@ notify_user() {
 
 # Increase brightness
 inc_backlight() {
-	light -A 5 && get_icon && notify_user
+	# light -A 5 && get_icon 
+	ddcutil --bus 5 --noverify --skip-ddc-checks setvcp 10 $(( 5 + $(get_backlight))) && get_icon 
 }
 
 # Decrease brightness
 dec_backlight() {
-	light -U 5 && get_icon && notify_user
+	# light -U 5 && get_icon 
+	ddcutil --bus 5 --noverify --skip-ddc-checks setvcp 10 $(( $(get_backlight) - 5 )) && get_icon 
+}
+
+# set brightness
+set_backlight() {
+	# light -U 5 && get_icon 
+	ddcutil --bus 5 --noverify --skip-ddc-checks setvcp 10 $1 && get_icon 
 }
 
 # Execute accordingly
@@ -51,6 +60,8 @@ elif [[ "$1" == "--inc" ]]; then
 	inc_backlight
 elif [[ "$1" == "--dec" ]]; then
 	dec_backlight
+elif [[ "$1" == "--set" || "$1" == "-s" ]]; then
+	set_backlight $2
 else
 	get_backlight
 fi

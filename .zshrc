@@ -1,10 +1,10 @@
 # check if Hyprland is running and start it if not
-if ! pgrep -x "Hyprland" > /dev/null && [[ ""$(tty)"" == "/dev/tty1" ]];
-then
-  # run Hyprland with no stdout
-  Hyprland > /dev/null 2>&1
-  exit
-fi
+# if ! pgrep -x "Hyprland" > /dev/null && [[ ""$(tty)"" == "/dev/tty1" ]];
+# then
+#   # run Hyprland with no stdout
+#   Hyprland > /dev/null 2>&1
+#   exit
+# fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -12,7 +12,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-pokeget dewott --hide-name | fastfetch --logo-type kitty -c ~/dotfiles/fastfetch.jsonc --file-raw -
+$HOME/.cargo/bin/pokeget dewott --hide-name | fastfetch --logo-type kitty -c ~/dotfiles/fastfetch.jsonc --file-raw -
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -22,7 +22,7 @@ export editor='nvim'
 export VISUAL='nvim'
 export TERMINAL='kitty'
 export BROWSER='firefox'
-export SHELL='zsh'
+export SHELL='/usr/bin/zsh'
 export CHROME_EXECUTABLE='brave'
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -71,14 +71,21 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/Documents/matlab/bin:$PATH"
+export PATH="$PATH:/home/fiammetta/.dotnet/tools"
 # export PATH="$HOME/node-v20.10.0-linux-x64/bin:$PATH"
 export PATH="$PATH:$HOME/neovim"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$(go env GOPATH)/bin"
+export PATH="$PATH":"$HOME/.cargo/bin"
 # . /home/fiammetta/export-esp.sh
 
 # alias set_idf="nix-shell $HOME/nixpkgs-esp-dev/shells/esp32-idf.nix"
 alias ls='ls -a'
+alias vim='nvim'
+alias vi='nvim'
+alias gdl='gallery-dl'
+alias s='yay -Ss'
 alias set_idf=". /opt/esp-idf/export.sh"
 alias teams='brave --app=https://teams.microsoft.com/go'
 alias cp=pycp
@@ -88,6 +95,7 @@ alias nrf="source $HOME/ncs/v3.1.1/zephyr/zephyr-env.sh"
 
 alias neofetch='neofetch --source ~/ascii.txt --colors 36 36 36 36 36'
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
+alias bctl='~/dotfiles/.config/hypr/scripts/brightness'
 # set ctrl-a to kill line
 eval "$(zoxide init zsh)"
 # set cd to zoxide
@@ -230,3 +238,14 @@ autoload -U compinit
 compinit
 source <(jj util completion zsh)
 
+
+# bun completions
+[ -s "/home/fiammetta/.bun/_bun" ] && source "/home/fiammetta/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

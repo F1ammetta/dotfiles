@@ -7,7 +7,7 @@ max-history=100
 sort=-time
 
 # BINDING OPTIONS
-on-button-left=dismiss
+# on-button-left=dismiss
 on-button-middle=none
 on-button-right=dismiss-all
 on-touch=dismiss

@@ -13,8 +13,8 @@ for _prs in "${_ps[@]}"; do
 done
 
 # Polkit agent
-if [[ ! $(pidof xfce-polkit) ]]; then
-	/usr/lib/xfce-polkit/xfce-polkit &
+if [[ ! $(pidof hyprpolkitagent) ]]; then
+	/usr/lib/hyprpolkitagent/hyprpolkitagent &
 fi
 
 # Set wallpaper
@@ -24,13 +24,15 @@ fi
 ~/.config/hypr/scripts/gtkthemes &
 
 # Lauch notification daemon (mako)
-~/.config/hypr/scripts/notifications &
+# ~/.config/hypr/scripts/notifications &
 
 # Lauch statusbar (waybar)
-~/.config/hypr/scripts/statusbar &
+# ~/.config/hypr/scripts/statusbar &
+
+quickshell -c bar
 
 # Start network manager applet
 nm-applet --indicator &
 
 # Start mpd
-exec mpd &
+# exec mpd &
