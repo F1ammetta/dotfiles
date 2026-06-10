@@ -7,9 +7,9 @@ Scope {
     property bool shouldShowOsd: false
 
     Connections {
-        target: Audio
-        function onVolumeChanged() {
-            root.shouldShowOsd = true;
+        target: Brightness
+        function onBrightnessChanged() {
+            root.shouldShowOsd = Brightness.first ? false : true;
             hideTimer.restart();
         }
     }
@@ -21,34 +21,33 @@ Scope {
     }
 
     LazyLoader {
-        active: root.shouldShowOsd
+        active: root.shouldShowOsd ^ root.first
 
         PanelWindow {
             anchors.right: true
-            exclusiveZone: 0 
+            exclusiveZone: 0
             color: "transparent"
-            
+
             implicitWidth: 50
             implicitHeight: 250
 
-            // ANIMATION: Slide the window out from the right edge
-            // We use the right margin: 0 is visible, negative is hidden.
             margins.right: root.shouldShowOsd ? 0 : -50
-            
+
             Behavior on margins.right {
-                NumberAnimation { duration: 300; easing.type: Easing.OutQuint }
+                NumberAnimation {
+                    duration: 300
+                    easing.type: Easing.OutQuint
+                }
             }
 
             Rectangle {
                 anchors.fill: parent
                 color: Config.mantle
-                
-                // Integrated look: Flat right side, rounded left side
+
                 topLeftRadius: 12
                 bottomLeftRadius: 12
                 topRightRadius: 0
                 bottomRightRadius: 0
-                
 
                 ColumnLayout {
                     anchors.fill: parent
@@ -57,7 +56,7 @@ Scope {
 
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: Math.round((Audio.volume || 0) * 100) + "%"
+                        text: Brightness.brightness + "%"
                         color: "white"
                         font.pixelSize: 10
                         font.bold: true
@@ -73,16 +72,16 @@ Scope {
                         Rectangle {
                             anchors.bottom: parent.bottom
                             width: parent.width
-                            height: parent.height * (Audio.volume || 0)
+                            height: parent.height * (Brightness.brightness / 100)
                             radius: parent.radius
-                            color: Audio.muted ? Config.red : Config.accent
+                            color: Config.accent
                         }
                     }
 
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: Audio.muted ? "" : ""
-                        color: Audio.muted ? Config.red : Config.accent
+                        text: ""
+                        color: Config.accent
                         font.pixelSize: 16
                     }
                 }

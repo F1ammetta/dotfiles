@@ -20,14 +20,19 @@ StatPill {
     }
 
     label: Audio.muted ? "Mute" : Math.round(Audio.volume * 100) + "%"
-    iconColor: Audio.muted ? "#f38ba8" : activePalette.highlight
+    iconColor: Audio.muted ? Config.red : Config.accent
 
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-        // Use the helper functions from the Singleton
-        onClicked: Hyprland.dispatch("exec pulsemixer --toggle-mute")
+        onClicked: mouse => {
+            if (mouse.button === Qt.LeftButton) {
+                Audio.toggleMute();
+            } else if (mouse.button === Qt.RightButton) {
+                root.ccOpen = !root.ccOpen;
+            }
+        }
 
         onWheel: wheel => {
             let step = 0.05;
@@ -39,3 +44,4 @@ StatPill {
         }
     }
 }
+

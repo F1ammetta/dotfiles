@@ -6,7 +6,7 @@ Rectangle {
 
     property alias icon: iconText.text
     property alias label: labelText.text
-    property color iconColor: activePalette.highlight
+    property color iconColor: Config.accent
 
     // FIX 1: Use implicitWidth instead of width.
     // This tells the RowLayout how much space we actually need.
