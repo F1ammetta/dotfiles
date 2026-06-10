@@ -137,10 +137,20 @@ Scope {
             root.ccOpen = false;
         }
     }
+    function togglecc() {
+        root.ccOpen = !root.ccOpen;
+        if (borderWinInstance.launcherOpen) {
+            borderWinInstance.launcherOpen = false;
+        }
+    }
 
     GlobalShortcut {
         name: "launcher"
         onPressed: root.toggleLauncher()
+    }
+    GlobalShortcut {
+        name: "cc"
+        onPressed: root.togglecc()
     }
 
     // Load Wifi Password Modal Dialog overlay
@@ -149,4 +159,3 @@ Scope {
     VolumeOSD {}
     BrightnessOSD {}
 }
-
