@@ -34,6 +34,8 @@ Scope {
     property var wifiDevice: null
     property var wiredDevice: null
 
+    property var visible: true
+
     Instantiator {
         model: Networking.devices
         delegate: QtObject {
@@ -65,6 +67,7 @@ Scope {
         implicitHeight: Config.barHeight
         exclusiveZone: Config.barHeight
         color: "transparent"
+        visible: root.visible
 
         SystemClock {
             id: clock
@@ -129,6 +132,7 @@ Scope {
     // Load Workspace Border overlay (contains the Control Center panel)
     WorkspaceBorder {
         id: borderWinInstance
+        // visible: root.visible
     }
 
     function toggleLauncher() {
@@ -137,6 +141,9 @@ Scope {
             root.ccOpen = false;
         }
     }
+    function togglevisual() {
+        root.visible = !root.visible;
+    }
     function togglecc() {
         root.ccOpen = !root.ccOpen;
         if (borderWinInstance.launcherOpen) {
@@ -144,6 +151,10 @@ Scope {
         }
     }
 
+    GlobalShortcut {
+        name: "visible"
+        onPressed: root.togglevisual()
+    }
     GlobalShortcut {
         name: "launcher"
         onPressed: root.toggleLauncher()
@@ -158,4 +169,5 @@ Scope {
 
     VolumeOSD {}
     BrightnessOSD {}
+    MicMuteOSD {}
 }

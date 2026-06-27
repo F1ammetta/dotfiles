@@ -66,8 +66,8 @@ Rectangle {
                                 if (mouse.button === Qt.LeftButton) {
                                     modelData.activate();
                                 } else if (mouse.button === Qt.RightButton) {
-                                    var coords = mapToItem(root.contentItem, mouse.x, mouse.y);
-                                    modelData.display(root, coords.x, coords.y);
+                                    var coords = mapToItem(barWindow.contentItem, mouse.x, mouse.y);
+                                    modelData.display(barWindow, coords.x, coords.y);
                                 }
                             }
                         }
@@ -244,6 +244,9 @@ Rectangle {
                 id: networkPill
                 icon: {
                     let wifiDev = root.wifiDevice;
+                    let wiredDev = root.wiredDevice;
+                    if (wiredDev && wiredDev.connected)
+                        return "";
                     if (wifiDev) {
                         if (!Networking.wifiEnabled)
                             return "󰤭";
@@ -267,9 +270,6 @@ Rectangle {
                         }
                         return "󰤯";
                     }
-                    let wiredDev = root.wiredDevice;
-                    if (wiredDev && wiredDev.connected)
-                        return "";
                     return "󰲜";
                 }
                 label: {
@@ -382,7 +382,7 @@ Rectangle {
         Layout.alignment: Qt.AlignCenter
         anchors.centerIn: parent
         Repeater {
-            model: 8
+            model: 10
             Text {
                 property var ws: Hyprland.workspaces.values.find(w => w.id === index + 1)
                 property bool isActive: Hyprland.focusedWorkspace && Hyprland.focusedWorkspace.id === (index + 1)
