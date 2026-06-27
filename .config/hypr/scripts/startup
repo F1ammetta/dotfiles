@@ -29,7 +29,7 @@ fi
 # Lauch statusbar (waybar)
 # ~/.config/hypr/scripts/statusbar &
 
-quickshell -c bar
+# quickshell -c bar -d
 
 # Start network manager applet
 nm-applet --indicator &
