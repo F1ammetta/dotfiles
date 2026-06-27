@@ -21,7 +21,7 @@ export EDITOR='nvim'
 export editor='nvim'
 export VISUAL='nvim'
 export TERMINAL='kitty'
-export BROWSER='firefox'
+export BROWSER='chromium'
 export SHELL='/usr/bin/zsh'
 export CHROME_EXECUTABLE='brave'
 export LC_ALL="en_US.UTF-8"
@@ -249,3 +249,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/fiammetta/.local/bin:$PATH"
